@@ -142,14 +142,14 @@ const SporeData = (()=>{
         }
     }
 
-    SD.undoLastAction = ()=>{
-        indexToDelete = SD.sporeArray.length - 1
-        while(!SD.sporeArray[indexToDelete].isActive){
-            indexToDelete--
-        }
-        SD.removeSpore(indexToDelete)
-        Settings.currentPlayer = SD.sporeArray[indexToDelete].player
-    }
+    // SD.undoLastAction = ()=>{
+    //     indexToDelete = SD.sporeArray.length - 1
+    //     while(!SD.sporeArray[indexToDelete].isActive){
+    //         indexToDelete--
+    //     }
+    //     SD.removeSpore(indexToDelete)
+    //     Settings.currentPlayer = SD.sporeArray[indexToDelete].player
+    // }
 
 
     SD.calcScoreDiff = ()=>{
