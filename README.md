@@ -16,3 +16,7 @@ Despite its simple rules, the gameplay quickly results in unpredictable complexi
 - Place spores with space
 - Navigate with the mouse
 - Use the arrow keys to shift the board
+
+
+### Square Tiling
+This is a modified version of the Mycelium game. The spores are placed on a grid of squares.
