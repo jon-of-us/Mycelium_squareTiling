@@ -1,14 +1,11 @@
 function drawMouseDonut(){
+    donutCtx.fillStyle = Settings.playerColors[Settings.currentPlayer]
+    // var tileifiedMouseX = BoardShiftX.changeCoords(SporeData.tileifyCoord(BoardShiftX.changeCoords(MousePosX,true)),false)
+    // var tileifiedMouseY = BoardShiftY.changeCoords(SporeData.tileifyCoord(BoardShiftY.changeCoords(MousePosY,true)),false)
     donutCtx.beginPath()
-    donutCtx.strokeStyle = Settings.playerColors[Settings.currentPlayer]
-    donutCtx.lineWidth = Settings.outerRadius - Settings.innerRadius
-    // console.log(Settings.playerColors[Settings.currentPlayer])
     donutCtx.arc(
-        MousePosX, MousePosY,
-        Settings.innerRadius + (Settings.outerRadius-Settings.innerRadius)/2 - Settings.sporeRadius,
-        0,Math.PI*2,false
+        MousePosX,MousePosY,Settings.tileLength*0.5,0,Math.PI*2,false
     )
-    donutCtx.stroke()
-
+    donutCtx.fill()
 }
 

@@ -59,25 +59,20 @@ const SporeVisual = (()=>{
     }
     SV.drawSporesInRange = ()=>{
         SporeData.loopOverAllSpores(function(spore1){
-            var shiftedX = BoardShiftX.changeCoords(spore1.x)
-            if(shiftedX<0 || shiftedX>window.innerWidth){return}
-            var shiftedY = BoardShiftY.changeCoords(spore1.y)
-            if(shiftedY<0 || shiftedY>window.innerHeight){return}
-            var distToOtherSpore = SporeData.calcDistance(shiftedX,shiftedY,MousePosX,MousePosY)
-            if (distToOtherSpore < Settings.outerRadius){
+            var distToOtherSpore = SporeData.calcDistance(
+                spore1.x,spore1.y,
+                SporeData.tileifyCoord(BoardShiftX.changeCoords(MousePosX,true)),
+                SporeData.tileifyCoord(BoardShiftY.changeCoords(MousePosY,true))
+            )          
 
+            if (distToOtherSpore < Settings.outerRadius){
                 boardCtx.beginPath()
-                // boardCtx.strokeStyle = Settings.canvasColor
                 boardCtx.strokeStyle = Settings.playerColors[spore1.player]
                 boardCtx.lineWidth = Settings.markingWidth
-                boardCtx.arc(shiftedX,shiftedY,Settings.sporeRadius,0,Math.PI*2,false)
+                boardCtx.arc(BoardShiftX.changeCoords(spore1.x),BoardShiftY.changeCoords(spore1.y),Settings.sporeRadius,0,Math.PI*2,false)
                 boardCtx.stroke()
-
-                // console.log('draw spores in range')
             }
-
         })
-
     }
 
     SV.drawProvisionalGrid = ()=>{
